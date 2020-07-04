@@ -1,7 +1,8 @@
-package com.example.practical2_part_a;
+package com.example.HelloConstraint;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -28,9 +29,31 @@ public class MainActivity extends AppCompatActivity {
     public void countUp(View view)
     {
         ++mCount;
-        if(mShowCount !=null)
+
+        if(mShowCount !=null){
+            findViewById(R.id.button_zero).setBackgroundColor(Color.MAGENTA);
+        }
             mShowCount.setText(Integer.toString(mCount));
+
+        if (mCount%2==1)
+            view.setBackgroundColor(Color.GREEN);
+        else
+            view.setBackgroundColor(Color.BLUE);
         //tes
+
     }
+   public void zero(View view)
+   {
+       if (mShowCount!=null)
+       {
+
+           mCount = 0;
+           mShowCount.setText(Integer.toString(mCount));
+           findViewById(R.id.button_zero).setBackgroundColor(Color.GRAY);
+           findViewById(R.id.button_count).setBackgroundColor(Color.BLUE);
+       }
+   }
+
+
 }
 
